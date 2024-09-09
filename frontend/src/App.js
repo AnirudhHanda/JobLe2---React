@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HomePage from './components/HomePage';
+import JobListings from './components/JobListings';
+import JobPostForm from './components/JobPostForm';
+import SuccessPage from './components/SuccessPage';
+import ContactPage from './components/ContactPage';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Navbar /> {/* Navbar is outside the Routes to be on all pages */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+          <Route path="/view-all-jobs" element={<JobListings />} />
+          <Route path="/add-job" element={<JobPostForm />} />
+          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </Router>
   );
 }
 

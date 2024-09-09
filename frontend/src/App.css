@@ -1,38 +1,284 @@
-.App {
+/* General Styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #222; /* Dark background */
+  color: #fff; /* White text */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* General Styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #222; /* Dark background */
+  color: #fff; /* White text */
+}
+
+
+/* Navbar Styles */
+nav {
+  background-color: #333; /* Darker gray for nav */
+  box-shadow: 0 0px 14px #7ed957;
+  padding: 10px 0;
+  margin-top: -5px;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  transition: 0.5s ease;
+  padding-top: 10px;
+  margin-top: 8px;
+}
+
+#logo2 {
+  height: 100px !important;
+  width: auto !important;
+  margin-left: -8px;
+  margin-top: -12px;
+}
+
+/* .logo .logo2 img {  // This seems to be an incorrect selector, removing it
+  width: 90px;
+  height: auto;
+} */
+
+#logo1 {
+  transition: 1.5s ease;
+}
+
+#logo1:hover {
+  transform: rotate(360deg);
+  transition: 1.5s ease;
+}
+
+.logo span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #7ed957; /* Use your specified logo color */
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff; /* White text for nav links */
+}
+
+nav a:hover {
+  color: #7ed957; /* Logo color on hover */
+}
+/* HomePage Styles */
+.hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero > div { /* Style the content div within .hero */
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero p {
+  margin-bottom: 1.875rem;
+  color: #ccc;
+}
+
+.hero .flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem; /* Adjust spacing between buttons */
 }
 
-.App-link {
-  color: #61dafb;
+.hero a { /* Style the links (buttons) within .hero */
+  display: inline-block;
+  background-color: #7ed957;
+  color: #222;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero a:hover {
+  background-color: #60b242;
+}
+
+
+/* ... other styles from style.css ... */
+.job-card {
+  background-color: #333; /* Darker gray background for the card */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-width: 600px; /* Limit card width for better readability */
+  margin: 20px auto; /* Center the card horizontally */
+  position: relative; /* For positioning the glow effect */
+  overflow: hidden; /* To contain the glow effect */
+  transition: 1s ease;
+  cursor: pointer;
+}
+
+/* Hover effect remains the same */
+.job-card:hover {
+  box-shadow: 0 0 20px #7ed957; /* Blue glow on hover */
+  transition: 1s ease;
+}
+
+.job-card:hover::before {
+  /* ... existing styles ... */
+}
+
+.job-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  line-height: 1.6; /* Improve readability with better line height */
+  margin-bottom: 15px;
+}
+
+.job-card .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-card .font-semibold {
+  font-weight: 600;
+}
+
+.job-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two columns, adjust minmax as needed */
+  gap: 20px; /* Spacing between cards */
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+form {
+  background-color: #333 !important; /* Darker gray background for the form */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mb-4 {
+  margin-bottom: 1rem; /* Add some spacing between form elements */
+}
+
+label {
+  display: block;
+  color: #fff; /* White text for labels */
+  font-size: 0.875rem; /* Slightly smaller font size for labels */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
+  color: #333; /* Dark text for input fields */
+  background-color: #f0f0f0; /* Light gray background for input fields */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #7ed957; /* Logo color on focus */
+  box-shadow: 0 0 0 2px rgba(126, 217, 87, 0.2); /* Subtle glow on focus */
+}
+
+button[type="submit"] {
+  background-color: #7ed957; /* Logo color for button */
+  color: #222; /* Dark text on button */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+button[type="submit"]:hover {
+  background-color: #60b242; /* Slightly darker logo color on hover */
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-white {
+  color: #fff;
 }
