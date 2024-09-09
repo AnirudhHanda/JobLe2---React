@@ -112,3 +112,13 @@ Feel free to contribute if you have any ideas or improvements!
 
 ### License
 This project is licensed under the MIT License.
+
+## Thank You
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java Logo" style="height: 50px; margin: 10px;">
+</div>
+
+Thank you for checking out my JobLe2 project! I hope this learning journey with Java, Spring Boot, and React has been as insightful for you as it has been for me.
+
+If you have any questions, suggestions, or just want to connect, feel free to reach out. Let's keep brewing awesome code together! ☕
