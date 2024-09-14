@@ -282,3 +282,26 @@ button[type="submit"]:hover {
 .text-white {
   color: #fff;
 }
+
+.ubutton1 {
+  color: #7ed957;
+  font-size: 20px;
+
+}
+
+.ubutton2 {
+  color: #fa3e3e;
+  font-size: 20px;
+}
+
+.ubuttons button {
+  cursor: pointer;
+  margin-top: 20px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.ubuttons button:hover {
+  color: #cccccc;
+}

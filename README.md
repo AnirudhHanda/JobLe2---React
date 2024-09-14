@@ -98,7 +98,7 @@ If you prefer using VS Code or the command line, you'll need Maven installed:
 
 2. **Navigate to the project directory:**
 *  ``` Bash
-       cd O14RestSpringBoot/)205JobLe2RESTReact
+       cd O14RestSpringBoot/205JobLe2RESTReact
 
 3. **Build and run the application:**
 *  ```bash

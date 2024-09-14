@@ -1,16 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // For navigation links
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const JobListings = () => {
-    const [jobs, setJobs] = useState([]); // State to store fetched jobs
+    const [jobs, setJobs] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch job data from backend API (replace with your actual API endpoint)
         fetch('http://localhost:8080/jobPosts')
-            .then(response => response.json())
-            .then(data => setJobs(data))
-            .catch(error => console.error('Error fetching jobs:', error));
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setJobs(data);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching jobs:', error);
+                setError(error);
+                setIsLoading(false);
+            });
     }, []);
+
+    const handleEdit = (job) => {
+        navigate('/edit-job', { state: { job } });
+    };
+
+    const handleDelete = async (jobId) => {
+        if (window.confirm('Are you sure you want to delete this job?')) {
+            try {
+                const response = await fetch(`http://localhost:8080/jobPost/${jobId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    setJobs(jobs.filter(job => job.postId !== jobId));
+                } else {
+                    console.error('Error deleting job:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error deleting job:', error);
+            }
+        }
+    };
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
     return (
         <div className="container">
@@ -27,8 +74,25 @@ const JobListings = () => {
                                 <span className="font-semibold">Experience:</span> {job.reqExperience} years
                             </div>
                             <div>
-                                <span className="font-semibold">Tech Stack:</span> {job.techStack.join(', ')} {/* Assuming techStack is an array */}
+                                <span className="font-semibold">Tech Stack:</span> {job.techStack.join(', ')}
                             </div>
+                        </div>
+
+                        {/* Edit and Delete buttons */}
+                        <div className="ubuttons flex justify-end mt-4">
+                            <button
+                                onClick={() => handleEdit(job)}
+                                className="ubutton1 font-bold py-1 px-2 rounded mr-2 flex items-center" // Added flex and items-center
+                            >
+                                <FontAwesomeIcon icon={faEdit} className="mr-2" /> {/* Edit icon */}
+
+                            </button>
+                            <button
+                                onClick={() => handleDelete(job.postId)}
+                                className="ubutton2 font-bold py-1 px-2 rounded flex items-center" // Added flex and items-center
+                            >
+                                <FontAwesomeIcon icon={faTrash} className="mr-2" /> {/* Delete icon */}
+                            </button>
                         </div>
                     </div>
                 ))}

@@ -6,6 +6,7 @@ import JobListings from './components/JobListings';
 import JobPostForm from './components/JobPostForm';
 import SuccessPage from './components/SuccessPage';
 import ContactPage from './components/ContactPage';
+import EditJobForm from "./components/EditJobForm";
 
 
 function App() {
@@ -13,12 +14,13 @@ function App() {
       <Router>
         <Navbar /> {/* Navbar is outside the Routes to be on all pages */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
-          <Route path="/view-all-jobs" element={<JobListings />} />
-          <Route path="/add-job" element={<JobPostForm />} />
-          <Route path="/success" element={<SuccessPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+            <Route path="/view-all-jobs" element={<JobListings />} />
+            <Route path="/add-job" element={<JobPostForm />} />
+            <Route path="/success" element={<SuccessPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/edit-job" element={<EditJobForm />} />
         </Routes>
       </Router>
   );
